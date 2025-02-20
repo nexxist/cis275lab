@@ -1,0 +1,517 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  HANDS-ON PROJECT
+%  INSTALLING GNU/LINUX
+%  Updated: December 2021
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\Large{Installing GNU/Linux}}
+
+After completing this lab, students will gain competency with the working knowledge of the basic installation of the following GNU/Linux distros: AlmaLinux {\tt{9}}, Debian {\tt{12}} and Fedora WS. Students will also be well informed of the different ways to prepare, install and use GNU/Linux. 
+
+\paragraph{Lab Preparation: } 
+
+\begin{itemize}
+   \item[{\bf{Virtual Machines:}}] This lab requires that your machine be connected to the Internet and is equipped with one of the following hypervisors: VirtualBox or VMWare.
+   \item[{\bf{Direct Install:}}] If a desktop or laptop is used for a direct install, review the hardware requirement as outlined in Book 1, chapter 2. 
+\end{itemize}
+
+\paragraph{Activity Background: } Chapter 2 in {\it{A First Course in GNU/Linux}}, Paul Nong-Laolam, Fifth Edition, Winter 2023/2025.
+
+\subsection*{Lab 2.0: Downloading GNU/Linux ISO Images}
+This section provides links to download the three Linux distros needed for our study (as described in the syllabus). 
+
+\begin{enumerate}
+\item {\bf{AlmaLinux {\tt{9}}}} (known as {\it{AlmaLinux OS {\tt{9}}}}) has world-wide support links/mirrors for download at: {\url{https://mirrors.almalinux.org/isos/x86_64/9.5.html}}. It is best to download the ISO image from a location closest to us. Open a web browser and navigate to {\url{https://mirrors.almalinux.org/isos/x86_64/9.5.html}}. Scroll down the page all the way to {\bf{US}} under the first column; then (scroll download if necessary) click on the link {\bf{mirror.grid.uchicago.edu}}. Then click {\bf{AlmaLinux-9.5-x86\_64-dvd.iso}} (in the middle of the list) to download {\bf{AlmaLinux 9.5}} ISO image, as depicted in Figure~\ref{fig:alma9OS}.
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/alma9-fig.png}
+   \caption{Downloading AlmaLinux 9}\label{fig:alma9OS} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item Open a web browser and navigate to {\url{https://www.debian.org/CD/netinst/#netinst-stable}}. Scroll down, if necessary, and click {\bf{amd64}} link below the {\bf{netinst CD image (generally 150-300 MB), varies by architecture}}. You may also copy it into your external hard drive for future reference.
+
+\item Open a web browser and navigate to {\url{https://getfedora.org/}}. Click to download Fedora {\tt{41}} WS. 
+
+\item Create folder on your local system (call it {\tt{cis275iso}}) and copy or move the above ISO images into this folder. Do not copy these ISO images onto your external drive! Unless your local system does not have 20GB for storage, then you may store these ISO images in your external device. 
+
+\end{enumerate}
+
+An etch program called {\bf{balenaEtcher}} ({\url{www.balena.io/etcher}}) can be used to transfer the ISO image to a USB drive to install any of the above distro on a laptop or a PC.  
+
+%%%
+% SECTION 
+\subsection*{Lab 2.1: Configuring VirtualBox Hypervisor for Guest Machines}
+In this exercise, we get to download, install and configure VirtualBox on Windows to build Linux virtual machines. 
+
+\begin{enumerate}
+\item Check to confirm that your Laptop or PC has been configured to support virtualization technology--this means: boot into your laptop/PC BIOS and enable the CPU VT or VT-x (or AMD-V) option.  
+\item Download VirtualBox from this web site: {\url{https://www.virtualbox.org/wiki/Downloads}}; and install it on your Windows host machine. 
+\item Launch VirtualBox.
+\item Click {\keys{New}} in the main tab, or click {\keys{Machine}} menu and select {\keys{New}}; or apply {\keys{Ctrl+N}}. 
+\item Enter {\bf{AlmaLinux9}} into the Name field. 
+\item In {\bf{ISO Image}} field, click to select your AlmaLinux ISO image on your folder. 
+\item Check the box {\bf{Skip Unattended Installation}} and click {\keys{Next}}. Refer to Figure~\ref{fig:install-alma9-001} for detail (ref: Linux). 
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/almalinux9-newmachine.png}
+   \caption{Creating new Virtual machine for AlmaLinux 9} \label{fig:install-alma9-001} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item Under Base Memory, allocate 2048 MB of RAM, using the slide bar or -/+ buttons.
+\item Under CPU, set processors to 2 CPU or more (especially if you have 8 core or more), then click {\keys{Next}}. 
+\item Under {\bf{Disk Size}}, use the slider bar or the value field, change the default value (20.00 GB) to 60 GB; use 40 GB if you have moderate storage capacity on your host system. Click {\bf{Next}} (leave everything else at default setting).   
+\item In the {\bf{Summary}} page, click {\bf{Finish}}. 
+\item Click {\keys{System}} in the main panel to perform further settings.
+\item Under the {\bf{Motherboard}} tab, uncheck {\bf{Floppy}} and move {\bf{Optical}} to the top by highlighting it and clicking the up-arrow; and move {\bf{Hard Disk}} to second from the top. 
+\item Click the {\bf{Processor}} tab, confirm the CPU core allocation (should have 2 or more). 
+\item Click {\keys{Display}} and set Video Memory to the maximum value displayed on the slider bar (set at least to 64 MB). 
+\item Click {\keys{Storage}}. Under Controller IDE:, check to confirm your ISO has been selected. If not, click {\bf{Empty}}, then click the disc icon on the right of {\bf{Optical Drive}} under the {\bf{Attribute}} tab and select {\bf{Choose Virtual Optical Disk File...}} from the drop-down menu and navigate to the folder that holds your AlmaLinux 9 ISO image. Double click (or click {\keys{Open}}) to select the file. Click {\keys{OK}} bottom-right corner. 
+
+\item To create a new virtual machine for Debian 12 or Fedora WS, follow the same procedure as above. 
+\item To begin the installation, double-click the name of virtual machine on the left (or click to highlight it and click {\keys{Start}}). 
+\item Proceed to Lab 2.3 for {\it{AlmaLinux OS {\tt{9}}}}, Lab 2.4 for Fedora WS and Lab 2.5 for Debian 12. 
+\end{enumerate}
+
+\subsection*{Lab 2.2: Configuring VMware Hypervisor for Guest Machines}
+In this exercise, we learn how to configure VMWare to build virtual machines. The procedure assumes that VMWare has already been installed on the host computer; and the VMWare illustrated here is based on VMWare Pro WS12. 
+\begin{enumerate}
+\item Launch VMWare.
+\item Select Custom (advanced) and click {\keys{Next}}.
+\item Accept default and click {\keys{Next}}.
+\item Select ISO, and browse to your folder holds the ISO images; double-click the desired ISO (e.g., CentOS 7.9). Click {\keys{Next}}.
+\item Change Host Name to the one according to the ISO image you selected (e.g., CentOS7), and click {\keys{Next}}.
+\item Select Processor: 2, Cores: 2, and click {\keys{Next}}.
+\item Allocate physical memory: RAM: 2048, click {\keys{Next}}.
+\item Network Type: Default, click {\keys{Next}}.
+\item I/O Controller: Default, click {\keys{Next}}.
+\item Disk Type: Default, click {\keys{Next}}.
+\item Select Disk: Default, click {\keys{Next}}.
+\item Specify Storage Capacity: The default size is 20 GB, but you must set it to at least 35GB; select Store virtual Disk as a single file; click {\keys{Next}}.
+\item Disk File: Default, click {\keys{Next}}.
+\item Finish
+\item To begin the intallation, click {\keys{Start}} to launch the ISO image and build the Linux guest machine. Proceed to Lab 2.3 for {\it{AlmaLinux OS {\tt{9}}}}, Lab 2.4 for Fedora WS and Lab 2.5 for Debian {\tt{12}}. 
+\end{enumerate}
+
+%
+% INSTALLING ALMA LINUX 9
+%
+\subsection*{Lab 2.3: Installing {\it{AlmaLinux OS {\tt{9}}}}}
+In this exercise, we install {\it{AlmaLinux OS {\tt{9}}}} as a virtual machine using VirtualBox or VMWare hypervisor. If you prefer to install {\it{AlmaLinux OS {\tt{9}}}} directly on your laptop or PC, refer to Lab 2.6. 
+
+\subsubsection*{Pre-Installation} 
+\begin{enumerate}
+\item Launch VirtualBox (refer to Lab 2.1) or VMWare (refer to Lab 2.2) and select {\it{AlmaLinux{\tt{9}}}} (see Step 5 of Lab 2.1).   
+\item At the start-up screen of {\it{AlmaLinux{\tt{9}}}}, press {\bf{I}} and press {\keys{Enter}} to accept: Install {\it{AlmaLinux OS {\tt{9}}}}. 
+\item At the Welcome to {\it{AlmaLinux OS {\tt{9}}}} Installation main menu, click {\bf{Continue}} to accept the default setting for Language/English (US). 
+\item At the {\bf{INSTALLATION SUMMARY}} page, click Date \& Time to set our time zone (Detroit) and click Done (upper-left corner). 
+\item Click the Network \& Host Name. Confirm that {\bf{Ethernet}} device and connection has been selected (wired is preferred) and turn on connection on the right. {\it{Wireless confiugration may be skipped at this point.}} Enter the desired host name in the Host Name field (at the bottom); use a hostname: {\bf{alma9.mcc.edu}}, with your initial attached after {\tt{9}}, and click Done.
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/alma9-hostname.png}
+   \caption{Setting hostname for AlmaLinux 9} \label{fig:install-alma9-hn} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item Back at the {\bf{INSTALLATION SUMMARY}} page, click {\bf{Installation Destination}} (under {\bf{SYSTEM}}, third column). Confirm that a storage device ({\bf{sda}} or {\bf{vda}}) device has been detected with a check mark to use as system storage. Under {\bf{Storage Configuration}}, by default, confirm that {\bf{Automatic}} has been checked; click {\bf{Done}}. Note: If {\bf{Installation Options}} window pops up, click {\bf{Reclaim space}}; click {\bf{Delete all}} and click {\bf{Reclaim space}} at the lower-right corner. The installer should return to {\bf{Installation Summary}}. 
+
+\item Back at the {\bf{INSTALLATION SUMMARY}} page, click {\bf{Software Selection}} (under {\bf{SOFTWARE}}, second column). In the left panel, under {\bf{Base Environment}} select {\bf{Workstation}}. 
+\item In the right panel, under {\bf{Additional... Selected Environment}}, check the following packages: 
+\begin{verbatim}
+      1. GNOME Applications 
+      2. Internet Applications 
+      3. Office Suite...
+      4. Development Tools
+      5. Graphical Administration Tools
+      6. Network Server
+      7. Security Tools 
+      8. System Tools
+\end{verbatim}
+and click Done. \newline {\it{NOTE}}: Scientific Tools, .NET Develpment, Container Management, Remote Desktop Clients are among the most useful tools to be included in the instalaltion; but, in the interest of time--fast install--we will skip them. 
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/alma9-software-pkg.png}
+   \caption{Setting hostname for AlmaLinux 9} \label{fig:install-alma9-pkg} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item Back at the {\bf{INSTALLATION SUMMARY}} page, click {\bf{Root Password}} (under USER SETTINGS) to set root password to: {\tt{cis275alma9}}. NOTE: {\it{This will be one of our first educational installation practices, use {\tt{cis275alma9}} as the root password.}} Uncheck the {\bf{Lock root account}} and check (to enable) {\bf{Allow root SSH login wiht password}}. Click Done. 
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/root-pwd.png}
+   \caption{Setting root password and allow root login} \label{fig:alma9-root-pwd} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item \item Back at the {\bf{INSTALLATION SUMMARY}} page, click {\bf{User Creation}}: 
+\begin{verbatim} 
+Full name: Enter Your Name 
+user name: first initial & last name (no space) 
+Password: Enter password (twice) 
+\end{verbatim} 
+Click Done. 
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/alma9-reg-user.png}
+   \caption{User name must be one word, all lower-case; example: {\tt{pnong}}} \label{fig:alma9-user-pwd} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item Click {\bf{Begin Installation}}
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/alma9-install.png}
+   \caption{Begin installing Almalinux9} \label{fig:alma9-install} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item {\label{start:l2.3}} While Installer (anaconda) is still installing, hold down the right {\keys{Ctrl}} key and press {\keys{F{\tt{1}}}} to access the virtual console menu, namely apply: right-{\keys{Ctrl+F{\tt{1}}}}, see Figure~\ref{fig:vbox-key} for left/right {\keys{Ctrl}} key; left/right {\keys{Alt}} keys behave the same way. Write down the version number of {\bf{anaconda}}: 
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/alma9-f-key.png}
+   \caption{Left and right {\keys{Ctrl}} or {\keys{Alt}} keys behave differently in VirtualBox} \label{fig:vbox-key} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\vspace{0.15in} 
+IMPORTANT NOTE: These shortcut key combinations operate differently for a GNU/Linux system that operates directly on a laptop/PC (see table in our textbook).
+
+\item Hold down right-{\keys{Alt}} and press {\keys{F{\tt{2}} }}. Write down what you see:
+
+\vspace{0.35in}
+
+\item Hold down right-{\keys{Alt}} and press {\keys{F{\tt{3}} }}. Write down or explain what you see:
+
+\vspace{0.50in}
+
+\item Hold down right-{\keys{Alt}} and press {\keys{F{\tt{4}} }}. Write down the last line (the instant it was displayed). 
+
+\vspace{0.35in}
+
+\item Hold down right-{\keys{Alt}} and press {\keys{F{\tt{5}} }}. Write down or explain what you see:
+
+\vspace{0.50in}
+
+\item {\label{stop:l2.3}} Hold down right-{\keys{Alt}} and press {\keys{F{\tt{6}} }}. Write down or explain what you see:
+
+\vspace{0.50in}
+
+You should have come back to the graphical installation screen.     
+
+\item When the {\bf{Complete!}} message appears, click {\bf{Reboot}} to restart the system.
+
+\end{enumerate}
+
+\subsubsection*{Post-Installation}
+
+\begin{enumerate}
+\item When AlmaLinux {\tt{9}} rebooted; at the log-in shell, click your name and enter your password. No need to take a tour, click No Thanks. 
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/almalinux9-first-login.png}
+   \caption{Alma GNOME Desktop} \label{fig:almalinux9-gnome} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\end{enumerate} 
+
+%
+% INSTALLING FEDORA 33 WS
+%
+\subsection*{Lab 2.4: Installing Fedora 41 WS} 
+
+In this exercise, we install Fedora 41 WS, using storage device auto configuration set by the Fedora system installer, called {\it{anaconda}}, to handle automatic storage partition schema. Anaconda will set up the {\tt{/boot}}, {\tt{/}}, {\tt{swap}} and {\tt{/home}} partitions automatically, using extended partition settings. Later, in advanced installation exercise, a manual configuration using the {\tt{fdisk}} or {\tt{gdisk}} will be examined. 
+
+The installation procedures outlined here are based on a virtual machine configuration hosted by VirtualBox hypervisor. The only distinction is the installation destination, difference between a virtual harddisk versus real physical hard drive (or SSD).
+
+\begin{enumerate}
+
+\subsubsection*{Installation} 
+
+\item Begin by following the procedures outlined in Lab 2.1 or Lab 2.2 above to launch Fedora 41 WS Live boot. Boot menu appears with three options: (1) Install Fedora 41, (2) Test the media \& Install Fedora 41, (3) Troubleshooting. Default option is best practice, in case you got a bad ISO iamge, press {\keys{Enter}}. Fedora 41 WS will test the ISO image and start the installation procedur...   
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/f41-1boot.png}
+   \caption{Fedora 41 Launch screen} \label{fig:f41-firstboot} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item The procedure is identical to that in Lab 2.3 for AlmaLinux. Follow steps 4 through 6 in that Lab. 
+
+\item The first step in the installation is the language configuration. Click {\keys{Continue}} to accept the default language (English) and proceed to the next step.
+
+\item Back at the {\bf{INSTALLATION SUMMARY}} page, click {\bf{Software Selection}} (under {\bf{SOFTWARE}}, second column). In the left panel, under {\bf{Base Environment}} select {\bf{Fedora Workstation}}. 
+\item In the right panel, under {\bf{Additional... Selected Environment}}, check the following packages: 
+\begin{verbatim}
+      1. Administrator Tools 
+      2. Compiz
+      3. Development Tools
+      4. Editors
+      5. KDE 
+      6. KDE Multimedia Support 
+      7. Network Server 
+      8. Office & Productivity 
+      9. Window Managers 
+\end{verbatim}
+and click Done. 
+
+%\begin{figure}[hbt!]\centering
+%   \includegraphics[width=\textwidth]{figures/ch2/alma9-software-pkg.png}
+%   \caption{Setting hostname for AlmaLinux 9} \label{fig:install-alma9-pkg} 
+%\end{figure}
+
+\item Follow and complete Steps 9 through 11 in Lab 2.3. Enable the root account, as shown in Figure~\ref{fig:f41-root-pkg}. 
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/f41-enable-root.png}
+   \caption{Setting hostname for AlmaLinux 9} \label{fig:f41-root-pkg} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item Click {\bf{Begin Installation}}; then complete the install by following the steps similar to Lab 2.3 to reboot Fedora.  
+
+\end{enumerate}
+
+%%%%%
+% INSTALLING DEBIAN 12
+%
+\subsection*{Lab 2.5: Installing Debian {\tt{12}}}
+
+This exercise outlines the basic installation method of Debian {\tt{12}} using a Network install image to take advantage of its extremely small size. All selected packages will be downloaded from a specified repository site for installation. Thus, this method requires a working network connection. Similar to Lab {\tt{2.3}} and {\tt{2.4}}, we apply the simple installation scheme on storage configuration (using Auto). 
+
+\begin{enumerate}
+\item Configure your VirtualBox (Lab 2.1) or VMware (Lab 2.2) hypervisor to create a guest machine for Debian {\tt{12}} and set 60 GB for its storage capacity; set to point to Debian {\tt{12}} ISO image. 
+
+\item Turn on the machine. 
+
+\item At the launch screen ({\bf{Debian GNU/Linux installer menu}}), press {\keys{$\downarrow$}} to select {\bf{Install}} and press {\keys{Enter}}, as depicted in Figure~\ref{fig:deb12-start-install}. Note: We selected the second option to install Debian in text mode (first option is graphical). Two reasons for this: (1) Easy installation procedure, (2) Easy on a hardware system with moderate graphics display device. 
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/deb12-start-install.png}
+   \caption{Select Install for Debian 12 installation} \label{fig:deb12-start-install} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item On the {\bf{Select a language}} screen, press {\keys{Enter}} to accept the default language (English). 
+
+\item On the {\bf{Select your location}} screen, press {\keys{Enter}} to accept the default location (United States). 
+
+\item Next, press {\keys{Enter}} to accept the default keyboard (American English). The installer now proceeds to load drivers for the detected hardware devices. 
+
+\item On the {\bf{Configure the network}} screen, enter {\bf{cis275.mcc.edu}} as the hostname; press {\keys{Tab}} to select {\bf{Continue}} and press {\keys{Enter}}. 
+
+\item On the {\bf{Set up users and passwords}} screen, enter {\tt{cis275deb12}} for the root password; press {\keys{Tab}} to select {\bf{Continue}} and press {\keys{Enter}}. Re-enter the root password, then press {\keys{Enter}}. {\it{If you entered a mismatched password, you must correct it.}}
+
+\item Enter your full name and press {\keys{Enter}}. Note: Pressing {\keys{Enter}} will go straight to select {\bf{Continue}} (bypassing the {\keys{Tab}} and {\keys{Enter}} keys. 
+
+\item Enter your username. {\it{Your username must be a single word and all lowercase. By tradition, it is your first initial and last name.}} Press {\keys{Enter}} to continue. 
+
+\item Enter your password twice, each followed by {\keys{Enter}}. 
+
+\item Press {\keys{Enter}} to select the default time zone (Eastern). The installer now proceeds to probe the storage device and read the partition table. 
+
+\item On the {\bf{Partition disks}} screen, press {\keys{Enter}} to accept the highlighted -- Use entire disk --; and press {\keys{Enter}} to accept the selected VBOX disk. 
+
+\item Press {\keys{Enter}} to confirm ``All files in one partition...'' 
+
+\item Press {\keys{Enter}} to confirm ``Finish partitioning and write changes to disk'', as depicted in Figure~\ref{fig:deb12-finish-disk-setting}. 
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/deb12-finish-disk-setting.png}
+   \caption{Confirm disk partitioning and installation} \label{fig:deb12-finish-disk-setting} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item Under the question: ``Write the changes to disk?'', press {\keys{Tab}} to select {\tt{<Yes>}} and press {\keys{Enter}} to write changes to disk and begin disk formatting and system installation. The system now begins to install base system software with progress bar...and will take few minutes...
+
+\item On the {\bf{Configure the package manager}} screen, press {\keys{Enter}} to accept <No>. 
+
+\item Press {\keys{Enter}} to accept default country (United States) for connecting to Debian archive/respository. 
+
+\item Press {\keys{$\downarrow$}} to select the Debian archive mirror at: \newline 
+mirrors.cs.binghamton.edu \newline 
+Several other mirrors may be used: {\url{debian.uchicago.edu}}, {\url{debian.csail.mit.edu}} or {\url{mirrors.lug.mtu.edu}}.  
+
+\item At the {\bf{HTTP proxy information (blank for none)}}, press {\keys{Enter}}. The installer now proceeds to configure apt tools and download software packages. Next, it begins to the selected software packages. To participate on the survey, press {\keys{Tab}} twice (to select {\tt{<Yes>}}) and press {\keys{Enter}} or just press {\keys{Enter}} to continue without participating.   
+
+\item On the {\bf{Software selection}} screen, apply the up/down to move up/down the list, and use press {\keys{Spacebar}} to select {\bf{Debian desktop environment}} as shown in Figure~\ref{fig:deb12-software-pkgs}. NOTE: The only packages added to the preselected items are: KDE Plasma and SSH Server. There are 2135 packages to be installed, which will take 25 to 40 minutes depending on the network speed and traffic. 
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/deb12-software-pkgs.png}
+   \caption{Selecting additional Desktop Environments} \label{fig:deb12-software-pkgs} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item {\label{start:l2.5}} While software packages are being installed, hold down the right {\keys{Ctrl}} key and press {\keys{F{\tt{4}}}} to access the virtual console menu, namely apply: right-{\keys{Ctrl+F{\tt{4}}}}; refer to Lab {\tt{2.3}} Figure~\ref{fig:vbox-key} for left/right {\keys{Ctrl}} key; left/right {\keys{Alt}} keys behave the same way. Describe what Debian installer is doing in this console? 
+
+\vspace{0.35in} 
+
+IMPORTANT NOTE: These shortcut key combinations operate differently for a GNU/Linux system that operates directly on a laptop/PC (see table in our textbook).
+
+\item Hold down right-{\keys{Alt}} and press {\keys{F{\tt{2}} }}. Press {\keys{Enter}} and explain what this console is for. Write down the BusyBox version number. 
+
+\vspace{0.25in}
+
+\item Hold down right-{\keys{Alt}} and press {\keys{F{\tt{3}} }}. Press {\keys{Enter}}, then type {\tt{help}} at the prompt and press {\keys{Enter}}. Describe what you see. What cna you say about the list produced by the help command? 
+
+\vspace{0.250in}
+
+\item Hold down right-{\keys{Alt}} and press {\keys{F{\tt{1}} }}. Describe what you see. 
+
+\vspace{0.25in}
+
+\item Hold down right-{\keys{Ctrl}} and press {\keys{F{\tt{5}} }}. Describe what you see.
+
+\vspace{0.250in}
+
+\item Hold down right-{\keys{Ctrl}} and press {\keys{F{\tt{4}} }}. Describe what you see.
+
+\vspace{0.250in}
+
+\item {\label{end:l2.5}} Hold down right-{\keys{Ctrl}} and press {\keys{F{\tt{6}} }}. Describe what you see.
+
+\vspace{0.250in}
+
+\item Hold down right-{\keys{Alt}} and press {\keys{F{\tt{1}} }} to get back to your installation screen. You should have come back to the graphical installation screen. If installation is still going with progress bar, wait until it completes the installation until the next step appears.     
+
+\item On the {\bf{Configuring gdm3}} screen (for desktop manager), press {\keys{Enter}} to accept selection (gdm3). Software installation continues with progress bar. 
+
+\item On the {\bf{Configuring grub}} screen, press {\keys{Enter}} (to confirm <Yes>) to install the GRUB boot loader to the master boot record on the primary drive. 
+
+\item Press {\keys{$\downarrow$}} to select {\tt{/dev/sda}}, then press {\keys{Enter}}.  
+
+\item On the {\bf{Finish the installation}} screen, press {\keys{Enter}} (to accept <Continue>) to complete installation. The system installer moves to reboot...to start Debian {\tt{12}}, as shown in Figure~\ref{fig:deb12-boots}. 
+
+\begin{figure}[hbt!]\centering
+   \includegraphics[width=\textwidth]{figures/ch2/deb12-boots.png}
+   \caption{GRUB booting Debian {\tt{12}}} \label{fig:deb12-boots} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\end{enumerate} 
+
+\subsection*{Lab 2.6: Direct Install on PC/Laptop}
+
+To install AlmaLinux {\tt{9}}, Debian {\tt{12}} or Fedora WS on your laptop or PC, the ISO image must be flashed to a USB drive or a DVD-RW or CD-RW disc. For AlmaLinux {\tt{9}}, a USB device is recommended. For Debian {\tt{12}} or Fedora {\tt{41}}, a CD-RW will do, if you plan to install it on your desktop PC whic has an optical drive. NOTE: If you install Debian {\tt{12}} directly on your Laptop (to enable wireless) or PC with high-end graphics card, you may need to see (talk to) me.    
+
+\begin{enumerate}
+
+   \item Open a web browser and navigate to {\url{www.balena.io/etcher}}. Click the {\bf{Download Etcher}} button, then click the top link (under ASSET) to download the Windows version. Install it on your Windows PC. 
+
+   \item For AlmaLinux {\tt{9}}, your USB must have at least 16GB of storage space. This USB cannot be used to hold any other data.
+
+   \item Launch {\bf{Etcher}}; point to the ISO image and select the appropriate USB. Your PC should have just this USB connected to avoid accidentally selecting the wrong one (and destroying all the data in it!). 
+
+   \item Plug in this USB into the PC/laptop you plan to install Linux. Turn on the PC and boot into its BIOS. {\it{The process/step to enter into the BIOS is different for different brand/model; do research online on your PC. Most likely, the F-key, Delete key, or F{\tt{12}} will do the job.}} Once in the BIOS, set boot option to point to USB, save the settigns and restart the system. Once the system boots into Linux, return to Lab 2.3 Step 2 for AlmaLinux {\tt{9}}, Lab 2.4 Step 2 for Fedora WS or Lab 2.5 Step 3 for Debian {\tt{12}}.
+\end{enumerate} 
+
+\subsection*{Lab 2.7: Windows Subsystem for Linux (WSL)}
+This Lab module is considered {\bf{advanced}} at this point in time, since it involves issuing text commands at the text terminal. This lab cannot be performed during our lab session as it will take much more time than our alotted lab time and your Windows system will need to reboot at least two times to complete the WSL preparation. Therefore, it is recommended to be done outside of class. The following is a step-by-step instruction on how to prepare and install Linux on your WSL.
+
+There are two stages to prepare, configure and install Linux on WSL. Note: We refer to Windows Subsystem for Linux as WSL, but in fact it is actually WSL2. The first stage involves updating your Windows 10 to at least Version 2004 and build number 1901. Once updated, we install and configure WSL and then install Linux (available at the Microsoft Store).
+
+\begin{enumerate}
+
+   \item Boot up Windows 10.
+
+   \item At the desktop, type ``features'' in the search bar to launch ``Turn Windows features on or off''. 
+\begin{figure}[hbt!]\centering
+\includegraphics[width=\textwidth]{figures/ch2/turn-on-wsl-feature.PNG}
+\caption{Turn on WSL feature}\label{fig:wsl-feature} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item Turn on ``Windows Subsystem for Linux'' with a check mark and click OK. When prompted to ``Restart'', click ``Don't restart''. We need to check one more feature; that is the current update version of Windows 10.  
+
+\item Type ``winver'' in the search bar and press ENTER. If your Windows Version is lower than 2004, as shown in Figure\ref{fig:windows-version}, you need to update it. Close the winodw and proceed to the next step; otherwise, skip to step 7.
+\begin{figure}[hbt!]\centering
+\includegraphics[width=\textwidth]{figures/ch2/winver-001a.png}
+\caption{Update Windows version 20H2.}\label{fig:windows-version} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item Back in the search bar, type ``update'' and press ENTER. In the Windows Update window, click ``Check for updates''. As shown in Figure \ref{fig:winver-update}, my Windows is ready for an update, version 20H2. Click to download and install, which will take awhile. Once update is complete, click the restart button to restart your computer. 
+\begin{figure}[hbt!]\centering
+\includegraphics[width=\textwidth]{figures/ch2/winver-to-update.png}
+\caption{Check for Windows Version 2004 or higher}\label{fig:winver-update} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item Once rebooted, type ``features'' in the search bar again to turn on ``Virtual Machine Platform'' in order to run WSL2 and click {\keys{OK}}, as depicted in Figure \ref{fig:virt-machine}. Click {\keys{Restart now}} when prompted. {\it{You must also turn on Hypervisor feature in your computer BIOS to enable virtualization.}} 
+\begin{figure}[hbt!]\centering
+\includegraphics[width=\textwidth]{figures/ch2/turn-on-virtual-machine.PNG}
+\caption{Turn on Virtual Machine Platform}\label{fig:virt-machine} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item We configure and launch WSL via the PowerShell command. Start powershell by typing ``powershell'' in the search bar and run it as administrator (Run as Administrator). Click {\keys{Yes}} to confirm ``Run as Administrator''. If you don't get the powershell terminal depicted in Figure \ref{fig:powershell}, you have launched the wrong one. 
+\begin{figure}[hbt!]\centering
+\includegraphics[width=\textwidth]{figures/ch2/powershell.PNG}
+\caption{Power Shell terminal (administrator)}\label{fig:powershell} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item At the Powershell, type: 
+\begin{verbatim}
+   wsl --set-default-version 2
+\end{verbatim}
+
+\item If Windows 10 responds by indicating that ``The operation completed successfully.'', as shown in Figure \ref{fig:wsl2-update}, proceed to Lab 2.8. Otherwise, proceed to step {\tt{10}} below. 
+\begin{figure}[hbt!]\centering
+\includegraphics[width=\textwidth]{figures/ch2/wsl2-001.PNG}
+\caption{Power Shell terminal (administrator)}\label{fig:wsl2-update} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item What we need to do is download an update package for WSL2 kernel. Open a Web browser and navigate to: {\url{https://aka.ms/wsl2}}. On this Web page, click ``Install'' link on the left to access {\bf{Manual install steps for older version}}, and click to download the WSL2 update package, as shown in Figure \ref{fig:download-wsl2}. 
+\begin{figure}[hbt!]\centering
+\includegraphics[width=\textwidth]{figures/ch2/download-wsl2-pkg.png}
+\caption{Power Shell terminal (administrator)}\label{fig:download-wsl2} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+\\
+The filename is: {\bf{wsl\_update\_x64.msi}}. Click to install it. Click Yes and Next to confirm the installation. Once completed, go back to the Powershell and retype the command: 
+\begin{verbatim}
+   wsl --set-default-version 2
+\end{verbatim}
+The quickest way is to press the up-arrow to rerun the previous command. 
+\end{enumerate}  
+
+\subsection*{Lab 2.8: Install Debian on WSL2}
+This Lab module follows from Lab 2.7 which must be completed first. In this Lab, we learn to install Debian on WSL2. Microsoft WSL2 has a limited list of GNU/Linux distros that can run inside WSL2. We also learn a few simple Powershell commands to list, install and run Linux. 
+
+\begin{enumerate}
+
+   \item With Powershell terminal still open from Lab 2.7, issue the Powershell command to list Linux distros in Microsoft store. 
+\begin{verbatim}
+   wsl --list --online
+\end{verbatim}
+The list is shown in Figure \ref{fig:online-store}. 
+\begin{figure}[hbt!]\centering
+\includegraphics[width=\textwidth]{figures/ch2/wsl-list-of-linux-distros.PNG}
+\caption{List of available Linux distro on Microsoft online store} \label{fig:online-store} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item We will install Debian with the following command: 
+\begin{verbatim}
+   wsl --install -d debian 
+\end{verbatim}
+WSL2 proceeds to download, install and configure the target Linux distro. Once complete, WSL2 will launch Debian in a new terminal as shown in Figure \ref{fig:debian-first-launch}.
+\begin{figure}[hbt!]\centering
+\includegraphics[width=\textwidth]{figures/ch2/debian-first-launch-2.PNG}
+\caption{Debian shell terminal at initial launch} \label{fig:debian-first-launch} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item At the shell prompt, enter:
+\begin{verbatim}
+  username:   (username MUST be one word, all lower-case)
+  password: 
+\end{verbatim} 
+Figure \ref{fig:debian-first-launch} depicts the shell terminal of the Debian system. That is it! You are now using Linux hosted by WSL2 on MS Windows 10 (ver 2004 or higher). 
+
+\item Logout your Debian by typing {\tt{logout}} or {\tt{exit}} at the shell prompt. 
+
+\item WSL2 supports a grphics display feature for Linux; that is, you can run Linux desktop and send it to Windows to handle the display in its desktop. The engine that connects or communicates between Linux and Windows desktop is the VcXsrv. It handles all the GUI applications by forwarding to the X server. We will discuss this in detail during class. Most of our activities will be done without the VcXsrv package installed.
+
+\item {\bf{Starting Debian as a new session: }} To launch Debian on WSL2, open the standard command prompt (that is, the DOS terminal) by typing {\bf{cmd}} in the search bar and press {\keys{ENTER}}. 
+
+\item At the DOS shell, type: 
+\begin{verbatim}
+   wsl -d debian 
+\end{verbatim}
+The new Linux shell is open within the DOS shell as depicted in Figure \ref{fig:debian-shell}. 
+\begin{figure}[hbt!]\centering
+\includegraphics[width=\textwidth]{figures/ch2/debian-shell.PNG}
+\caption{Debian shell terminal inside MS DOS shell} \label{fig:debian-shell} % see Figure~\ref{fig:ch1-rf-1}
+\end{figure}
+
+\item To log out, type ``exit'' twice; one to logout of Debian, the other to close the DOS shell. 
+
+\end{enumerate}  
+
+\subsection*{Conclusion \& Submission of Lab 2}
+
+Prepare a one-paragraph summary of what you learned in this section about the installation procedure and process of AlmaLinux, Debian and Fedora.  
+
+Submit your conclusion along with your answers to questions in Lab 2.3, Step~\ref{start:l2.3} through Step~\ref{stop:l2.3}, for installation process of AlmaLinux.
+
+Submit your conclusion along with your answers to questions in Lab 2.5, Step~\ref{start:l2.5} through Step~\ref{end:l2.5}, for installation process of Debian. 
+
+Compare and contrast the difference between AlmaLinux and Debian virtual consoles used during the installation process. 
