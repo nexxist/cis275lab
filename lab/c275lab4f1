@@ -1,0 +1,678 @@
+\chapter{Introduction to Statistics} 
+
+\begin{flushleft} 
+   {\hfill ``Statistics is the grammar of science.''\\}
+   {\hfill --Karl Pearson\\}
+\end{flushleft} 
+%\vspace{3mm} 
+
+\begin{flushleft} 
+   {\hfill ``Randomization is too important to be left to chance.''\\}
+   {\hfill --J. D. Petruccelli\\}
+\end{flushleft}
+\vspace{0.25in} 
+
+
+% src: Good source to help complete the writing...
+% https://www.britannica.com/biography/Karl-Pearson
+% https://www.britannica.com/science/statistics/Random-variables-and-probability-distributions
+% Karl Pearson 
+
+% another good source on branchses of stats 
+% https://www.cuemath.com/data/inferential-statistics/
+
+\section{What is Statistics?}
+In a nutshell, statistics is a scientific tool that provides a way to extract information from data. This book pretty much describes the methodology of this tool. Statistics is arguably the most versatile and practical scientific disciplines used in all fields that deal with our daily endeavors. Bits and pieces of this evidence will be revealed in this book, chapter by chapter. We first start with a formal definition of {\it{statistics}}\index{statistics} and the {\it{data}}\index{data} that it uses.   
+
+\begin{definition}[Statistics] \label{stat-def-001} 
+Statistics is the science of collecting, organizing, summarizing, presenting and analyzing data. 
+\end{definition} 
+
+% %---------------------------------------------------------------
+% framed example block
+%
+%\begin{exm2}[label={myautocounter}]{Title with number}
+%   This box is automatically numbered with \ref{myautocounter} on page
+%   \pageref{myautocounter}. Inside the box, the \thetcbcounter\ can
+%   also be referenced by |\thetcbcounter|.
+%   The real counter name is \texttt{\tcbcounter}.
+%\end{exm2}
+%-----------------------------------------------------------------
+
+\begin{definition}[Data] 
+Data consist of information coming from observations, responses, measurements or counts. 
+\end{definition} 
+
+\begin{example} \label{data-ex1}
+According to Statista ({\url{www.statista.com}}), the amount of time spent each day using smartphones among American adults grew from 3 hours 1.1 minutes in 2019 to 3 hours 54.8 minutes in 2023. A nearly 1-hour increase.   
+\end{example}
+
+In Example~\ref{data-ex1}, data based on facts from two different periods (2019 and 2023) were collected. They were then summarized and presented to provide the general information about the amount of time American adults spent using smartphones on a daily basis.     
+
+\begin{example} \label{data-ex2}
+   About 15\% of men in the United States are left-handed and 9\% of women are left-handed. (Source: Scripps Survey Research Center.)   
+ \end{example}
+
+\begin{example} \label{data-ex3}
+ Over 42\% of college students have credit card debt. About 28\% say their credit card debt exceeds \$2,000. (Source: U.S. News; {\url{https://money.usnews.com/credit-cards/articles/survey-over-42-of-college-students-have-credit-card-debt}})
+\end{example}
+
+\begin{example} \label{data-ex4}
+ The number of Americans with diabetes will nearly double in the next 25 years. (Source: Diabetes Care)
+\end{example}
+
+%\begin{remark} {On the word DATA:} 
+The word ``data'' has its root in Latin. It is the plural form of the word ``datum'' that refers to a single observed or measured value. In statistics, we deal with a mass of observed or measured values, collectively called {\it{data}}. Thus, the singular form of data (i.e., datum) is rarely used in statistics. But the word ``data'' has increasingly become a common word used for both the plural form and the singular form of datum, such as the writing ``the data is'' that is often found in computing and engineering literature. These branches of science seem to have abandoned the use of {\it{data}} as the plural noun for {\it{datum}}. In this book, we stick to the denotation of the word ``data'' as the plural noun for {\it{datum}}. For example, here is our datum: 23.5; the data are listed as follows: 23.5, 33.2, 34, 35.2, etc. We will also use ``data'' as an adjective in a phrase such as ``data set'', ``data points'' or ``a data point'' to describe a collection of one or more observed or measured value(s).   
+%\end{remark} 
+
+\section{Data} 
+
+In statistics, we deal with two types of data, known as {\it{population}}\index{population} and {\it{sample}}\index{sample}. Their characteristic features are at the very core of statistics.  
+
+\begin{definition}[Population] 
+Population consists of all the subjects being studied. It is a collection of all the outcomes, observations or measurements.
+\end{definition}
+
+\begin{example} \label{pop-stats-001} 
+To obtain the exact number of students who own a laptop PC, the instructor surveys all the 36 students in the classroom. The entire student body in this classroom is the population.  
+\end{example}  
+
+To study a population such as the one in a statistics class (Example~\ref{pop-stats-001}) is easy, because the population is small. The same study {\it{cannot}} be easily or effectively done on the entire U.S. population. Using the entire U.S. population for a study is expensive in terms of cost and time constraint. It is therefore cheaper to obtain a small subset of it, called {\it{sample}}.
+ 
+\begin{definition}[Sample] 
+Sample is the representative portion of the population. It is a subset or part of the population.
+\end{definition}
+
+\begin{example} \label{sam-stats-001} 
+To study the general information of MCC students who own a notebook PC, we select a sample of 65 from a population of 3,446 (2022-2023 enrollment) to conduct our analysis and form a conclusion. 
+\end{example}  
+
+Instead of surveying the entire population of the 3,446 MCC students, which can be time-consuming and costly, we can sample 65 of them to conduct our study. Our sample, when done correctly, will be the representation of the entire population. 
+
+\subsection{Parameter and Statistic}
+
+There are two important concepts related to population and sample. These are {\it{parameter}}\index{parameter} and {\it{statistic}}\index{statistic}. 
+
+\begin{definition}[Population Parameter] 
+Parameter is a numerical description and summary of the population characteristic.  
+\end{definition} 
+
+\begin{example} 
+The result from a survey in Example~\ref{pop-stats-001} indicates that 82\% of the students in our statistics class own a laptop PC. The value represents a {\it{parameter}} because it is a numerical summary of the entire population in statistics class. 
+\end{example}
+
+\begin{example}
+Starting salary for the 800 MBA graduates from MSU Graduate School of Business increased 8.5\% from the previous year. Since the percent increased of 8.5\% is based on all the 800 graduates starting salary, it is a {\it{parameter}} of the population (of the 800 graduates). 
+\end{example} 
+
+\begin{definition}[Sample Statistic] 
+{\it{Statistic}} is a numerical description and summary of a sample characteristic.
+\end{definition} 
+
+\begin{example} 
+A sample of the 65 students from the 2022-2023 enrollment (Example~\ref{sam-stats-001}) indicated that 79\% of them own a laptop PC. The value represents a {\it{statistic}} because it is a numerical summary of the sample. 
+\end{example} 
+
+\begin{example} \label{data-ex-last}
+A recent survey of a sample of MBA's reported that the average starting salary for an MBA in Michigan is over \$100,000 per year. Since average salary (\$100,000) is based on a subset of the population, it is a {\it{statistic}}.
+\end{example} 
+ 
+\section{Branches of Statistics: Descriptive and Inferential}
+
+As indicated in Definition~\ref{stat-def-001}, statistics involves much more than just the collection of data and the summarization of them. With proper methods and techniques, statistics helps us form conclusions that go far beyond the original data. Statistics is divided into two branches called {\it{Descriptive}}\index{descriptive} and {\it{Inferential}}\index{inferential}.
+
+\begin{definition}[Descriptive Statistics] 
+{\it{Descriptive Statistics}} is a branch of statistics that involves collection, organization, summarization and presentation of data.
+\end{definition}
+
+In descriptive statistics, we try to describe a situation based on the collected data and present the results as they are, in a form of figures, tables, charts, plots or graphs. Example~\ref{data-ex1} through Example~\ref{data-ex-last} are the practices of descriptive statsitics. They basically involve collecting, summarizing and presenting the data. 
+
+Chapter 2 will discuss in detail the practice of descriptive statistics that focuses on presenting the data in different forms such as tables, charts, plots and graphs. Chapter 3 will discuss in detail the practice of descriptive statistics that focuses on the summarization and presentation of the data with details of quantitative characteristics of a population and a sample.
+
+\begin{example}   
+The national census conducted by the U.S. government every 10 years contains average age, income and other characteristics of the U.S. population. To obtain this information, the government must devise a means to collect data. After data are collected, they must be organized and summarized. To present the data in some meaningful way, graphs, charts or tables may be used. This is an example of the practice of descriptive statistics. 
+\end{example} 
+
+\begin{definition}[Inferential Statistics]  
+
+{\it{Inferential Statistics}} is a branch that applies statistical tools and analytical procedures to study the sample and form conclusions or inferences about the population from which the sample was drawn. 
+\end{definition} 
+ 
+Analytical procedures performed in inferential statistics involve computing estimations, constructing confidence intervals, determining relationships among variables, conducting hypothesis tests and making predictions. In inferential statistics, we try to make inferences (i.e., general statements) about the population using analytic results from the sample. Probability theory is among the statistical tools we apply in the analysis. This theory is discussed in detail in Chapter 4. 
+
+Inferential statistics can be further subdivided into two categories: one focuses on hypothesis testing and the other on regression analysis. We will learn both of them in this book.  
+
+\begin{example}  
+After sample data are organized, summarized, tabulated and presented in charts, tables or graphs, we can apply inferential statistics and its procedures to: (1) analyze the data using various statistical methods, (2) interpret the data, and (3) draw conclusions. Using results from inferential statistics, we make the general statements from the sample to the entire population. This approach also allows us to make predictions. 
+\end{example} 
+
+%\begin{tikzpicture}
+%   \node {root}
+%   [edge from parent fork right,grow=right]
+%   child {node {left}}
+%   child {node {right}
+%   child {node {child}}
+%   child {node {child}}
+%   };
+%\end{tikzpicture}
+      
+%Graphically, these two broad areas of Statistics may be constructed as follows: 
+%\begin{center}
+%\includegraphics[scale=.65]{figures/chap1/statistics_disciplines.png}\\
+%%\caption{Figure 1: Two major branches of Statistics}
+%\end{center}
+
+%\begin{tikzpicture}
+%   \node[entity] (sheep) {Sheep}
+%   child {node[attribute] {name}}
+%   child {node[attribute] {color}};
+%\end{tikzpicture}
+   
+\section{The Nature of Data: Types of Variables}
+
+In statistics, we deal a lot with data. Data are the values or measurements that the {\it{variables}} can assume. Data variables can be classified as {\it{qualitative}}\index{qualitative} or {\it{quantitative}}\index{quantitative}.
+
+\subsection{Qualitative Variables} 
+
+Qualitative variables cannot be measured numerically; we cannot assign numerical values to qualitative variables. 
+
+\begin{definition}[Qualitative Data] 
+Qualitative (or categorical)\index{categorical} data consist of attributes, labels, or nonnumerical entries.
+\end{definition} 
+
+\begin{example} 
+Examples of qualitative data are gender, male, female, nationality, zip code, etc.
+\end{example}  
+
+\begin{example} 
+   The status of an undergraduate college student is an example of qualitative variable since a student can be classified as freshman, sophomore, junior, or senior.
+   \end{example} 
+
+\subsection{Quantitative Variables}
+
+Quantitative variables can be measured numerically; we can assign numerical values to quantitative variables. 
+
+\begin{definition}[Quantitative Data] 
+   Quantitative data consist of numerical measurements or counts.
+   \end{definition} 
+   
+   \begin{example} 
+   Examples of quantitative data are age, weight, temperature, test scores, etc.
+   \end{example} 
+
+Quantitative variables can be further classified as {\it{Discrete}} and {\it{Continuous}}.
+
+\begin{definition}[Discrete Quantitative Variable] 
+A discrete quantitative variable is a variable whose values are countable and finite. 
+\end{definition} 
+
+\begin{example}
+The number of students (population size) in our statistics class is 36. We can count the number of students; the value is finite and countable. Each student is an individual; hence, discrete. 
+\end{example} 
+
+\begin{definition}[Continuous Quantitative Variables] 
+A continuous quantitative variable is a variable whose value is not countable and can assume any numerical value betweem two numbers. This type of variable is also associated with a point of infinite scale, with no gaps in between. 
+\end{definition} 
+
+\begin{example} 
+Determine whether the following statement describes a variable as discrete or continuous. {\it{Students standing in a queue waiting to check out at the MCC bookstore.}} We can count all the students who are standing in the queue. Thus, this number is represented by a {\it{discrete variable}}. The length of the queue may be eight feet long, but there are gaps created by individual students; hence, it cannot assume any numerical value between two numbers.  
+\end{example} 
+
+\begin{example} 
+{\it{Describe the audio tracks on an audio CD and the length of those tracks in terms of discrete variable and countuous variable.}} The number of audio tracks on an audio CD is countable which can be represented by a {\it{discrete variable}}. However, the length of each track is continuous and uncountable. We can measure the total time of each track, from start to finish; but we cannot count each interval between the start and end of the track. It has no internal ``discrete'' countable character, except a measure of time (seconds or minutes) along the track. Thus, the total runtime of a sound track is represented by a {\it{continuous variable}}, because it can assume any numerical value between two numbers (0 min and 3 min).       
+\end{example}
+
+\begin{example} 
+The length of a meter stick is another example of a {\it{continuous variable}}. The variable can assume a numerical value between two numbers (0 m and 1 m).       
+\end{example}
+
+\begin{figure}[H] % force exact placement 
+   \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,top},capbesidewidth=6cm}}]{figure}[\FBwidth]
+   {\caption{Diagram on the left depicts a summary of the different types of variables used in statistics.} \label{fig:variable-tree-001a}}
+   {\includegraphics[width=0.60\textwidth]{figures/chap1/variable-tree-001b.png}}
+\end{figure}
+
+%%%
+% SKIP THIS SECTION FOR NOW -- REASON DON'T HAVE TIME TO WRITE
+%
+%\subsection{Crossed-Section and Time-Series Data} 
+%
+%Data that contain cross-section entries 
+
+\subsection{Level of Measurement}
+
+When conducting a research study, it is important to know the kind of data we deal with. The nature of the data will dictate which statistical procedures or methods we need to apply. We saw earlier that data can be classified as qualitative or quantitative. The nature of the data can be identified by the level of measurement. The level of measurement determines which statistical calculations are meaningful. 
+
+There are four levels of measurement: Nominal\index{nominal}, Ordinal\index{ordinal}, Interval\index{interval}, and Ratio\index{ratio}. We list and define them as follows: 
+
+\begin{definition}[Level of Measurement] We define the four levels of measurement as follows: 
+\begin{itemize}
+   \item {\textbf{Nominal}}: Data at the nominal level are qualitative only. They can be categorized using names, labels or qualitative characters. No mathematical computations can be made at this level.
+   \item {\textbf{Ordinal}}: Both qualitative and quantitative. Data can be arranged in order, but no mathematical operation can be done. In other words, precise differences between the ranks do not exist.
+   \item {\textbf{Interval}}: Data at the interval level are quantitative. The level of measurement differs from that of the ordinal by the fact that there exists a ranking order; that is, data can be ordered, and they can be manipulated in some meaningful way. For example, we can calculate data entries. However, there is no meaningful zero. A zero entry simply represents a position on the scale. 
+   \item {\textbf{Ratio}}: The level of measurement for data at the ratio level possesses the characteristic of interval level with the added property that it has inherent zero. At this level, differences and ratios are meaningful. 
+\end{itemize}
+\end{definition} 
+ 
+\begin{example} [Nominal]  
+The data below consist of the name of the city and state, and its associated geographical region (time zone). 
+\begin{table}[h]
+   % Table 1.1
+   \centering 
+   %\begin{center}
+   \caption{ \label{tab:nominal} Categories only}
+   \begin{tabular}{|c|c|}
+   \hline
+      {\bf{City, State}} & {\bf{Geography}} \\
+   \hline
+   Boston, MA & East Coast  \\
+   \hline
+   Seattle, WA & West Coast  \\
+   \hline
+   MNPLS, MN & Central \\
+   \hline
+   \end{tabular}
+\end{table}
+
+Since the city name (and state) and region both are simply names, the data therefore are at the nominal level.
+\end{example} 
+
+\begin{example} [Ordinal] 
+In a sample of 36 notebook computers, 12 were rated ``good,'' 16 were rated ``better,'' and 8 were rated ``best.''
+\begin{table}[h]
+% Table 1.1
+%\begin{center}
+\centering 
+\caption{ \label{tab:ordinal} Order is determined by {\it{good}}, {\it{better}} and {\it{best}}}
+\begin{tabular}{|c|c|}
+\hline
+{\bf Notebook PCs} & {\bf Ratings} \\
+\hline
+12 15.6-inch LED & Good  \\
+\hline
+16 14-inch LED & Better  \\
+\hline
+8 12-inch LED & Best \\
+\hline
+\end{tabular}
+\end{table}
+
+Here, we cannot determine the specific measured differences between such ratings, and therefore, data can be classified based on their qualitative characteristics.
+\end{example} 
+
+\begin{example} [Interval] 
+The table below shows the average monthly temperature (in Fahrenheit) in St Louis, Missouri.
+\begin{table}[h]
+% Table 1.1
+\centering
+\caption{Difference between values can be found.}
+%\caption{Difference between values can be found.}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Jan & 46.3 & Jul & 75.4 \\
+\hline
+Feb & 51.2 & Aug & 74.8 \\
+\hline
+Mar & 54.5 & Sep & 71.7  \\
+\hline
+Apr & 58.9 & Oct & 64.4 \\
+\hline
+May & 65.5 & Nov & 53.3 \\
+\hline
+Jun & 71.3 & Dec & 45.8 \\
+\hline 
+\end{tabular}
+\label{tab:interrval}
+\end{table} 
+%\begin{center}
+%\includegraphics[scale=0.50]{figures/chap1/interval_example.png} \\
+%\caption{Figure 4: Difference between values can be found,}
+%\end{center}
+We can classify the data in category or rearrange in order based on temperature (values) or month (alphabetical). We can also determine the difference between any two months. Thus, the nature of the data is interval characteristic. For instance, the difference between the two recorded temperatures, $53.3^{\circ}$F$ - 45.8^{\circ}$F, tells us that November is warmer than December. 
+\end{example} 
+
+\begin{example} [Ratio] 
+The table blow shows the average monthly precipitation (in inches) in St. Louis, Missouri.
+\begin{table}[h]
+% Table 1.1
+\centering
+\caption{Difference between values can be found.}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Jan & 3.8 & Jul & 0.1 \\
+\hline
+Feb & 3.5 & Aug & 0.2 \\
+\hline
+Mar & 2.8 & Sep & 0.5  \\
+\hline
+Apr & 1.0 & Oct & 0.9 \\
+\hline
+May & 0.5 & Nov & 2.2 \\
+\hline
+Jun & 0.2 & Dec & 2.5 \\
+\hline 
+\end{tabular}
+\label{tab:ratio} 
+\end{table} 
+In the table, we can arrange data in category or in order. We can determine the differences between any two values and calculate the ratios between them. For example, $\frac{1.0}{0.5} = 2$ tells us that there is twice as much rain in April as in May.
+\end{example} 
+ 
+\section{Designing a Statistical Study}
+
+Before we conduct a statistical study, it is important to have a specific plan and a clear objective(s) in mind. The process of a statistical study involves the following guidelines:
+
+\begin{itemize}
+   \item[(a)] {\bf{Objective:}} Identify the research objective; identify the variables of interest and the population of the study; develop and construct questions that we want to answer. 
+   \item[(b)] {\bf{Data Collection:}} Develop a detailed plan for collecting the data; construct a method to collect a specific information needed to answer questions posed in (a). It is often difficult to gather information from the entire population. Therefore, a sample is more feasible and practical, if collecting data from the entire population is costly and time-consuming.   
+   \item[(c)] {\bf{Descriptive statistics:}} Organize and summarize the collected information to conduct a preliminary of the analysis using tables, charts, plots or graphs; carry out numerical computations and summary of the data.   
+   \item[(d)] {\bf{Inferential statistics:}} Apply statistical tools and inferential statistics to analyze the data. Interpret the results and draw conclusions from the analyses. Make inferences about the results obtained from the analyses to the entire population; make predictions. 
+\end{itemize}
+ 
+The methodology presented in this book discusses the above four points in complete detail. In other words, after mastering the materials in this book, you will acquire the working knowledge to design and conduct a statistical study with confidence at a high level of competency.     
+
+\subsection{Observational and Experimental Study}
+
+There are two types of statistical studies we can conduct. These are called {\it{observational study}} and {\it{experimental study}}. We must stress that data are extremely important to the success of a statistical study. Therefore data must be carefully collected (using the appropriate methods we will learn in this book). Misused data may yield misleading conclusions, interpretations or answers to the questions we wish to study. We even go further to stress that there are ethical practices involved with the collection and handling of data.   
+
+\begin{definition}[Observational Study]\index{observational study}
+Observations and measurements of individual are conducted in a way that does not change the response or the variable being measured.
+\end{definition} 
+
+\begin{example} 
+We perform a survey sampling by observing a group of people without them being aware of our observation; a method that does not attempt to influence or change the variable. We simply observe and record/measure the characteristics of the subject of interest.
+\end{example} 
+
+\subsection{Experimental Study}
+
+The second method involves designing an experimental\index{experimental} study that can affect the variables being collected. Here, we intervenve the subjects and record the changes or effects of our intervention. 
+
+\begin{definition}[Experimental Study]\index{experimental study}  
+A treatment that is deliberately imposed on the individual in order to observe the possible change(s) in the response or variable being measured. 
+\end{definition} 
+
+\begin{example} 
+To conduct a research study using experimental method, we apply a certain treatment or intervention. We then look at the effect on the response variable.  
+\end{example} 
+
+\subsection{Experimental Study: Design and Control}
+
+To avoid bias results, we must carefully design and execute the experiment using three vital key elements. 
+
+\begin{enumerate}
+   \item {\bf{Control:}}\index{control} We should be able to have full control on how to conduct data collection from within the population. 
+   \item {\bf{Randomization:}}\index{randomization} Data must be purely based on random selection and random samples utilizing the sampling techniques discussed in the following section. 
+   \item {\bf{Replication:}}\index{replication} We must be able to repeat our studies; samples can therefore be repeated. 
+\end{enumerate}
+
+\section{Sampling Methods}
+
+Every population may possess different distribution and characteristic. The distribution may be well-distributed or skewed. A population may have members (or subjects) scattered in groups or clustered. For this reason, an appropriate sampling technique for each situation must be carefully designed to collect data that reflect the true population characteristics. Many sampling methods exist in statistics. We list four of the most common practical ones and outline their procedures. These are: {\bf{Simple Random Sampling}} \index{simple random sampling}, {\bf{Systematic Sampling}} \index{systematic sampling}, {\bf{Cluster Sampling}} \index{cluster sampling}, {\bf{Stratified Sampling}} \index{stratified sampling}.
+
+\subsection{Simple Random Sampling} 
+
+Simple random sampling involves a process of {\it{random sampling}}\index{random sampling}. 
+
+\begin{definition}[Random Sampling] \label{random-sampling-001} 
+A process of selecting individuals from a population using random-numbered selection methods is referred to as {\it{random sampling}}. 
+\end{definition} 
+
+In a random sampling, every member (or subject) in the entire population has equal chance of being selected. Whenever possible, simple random sampling is the best method to sample and collect data. Its definition is given as follows. 
+
+\begin{definition}[Simple Random Sampling] \label{simple-random-001} 
+Simple random sampling is a process of obtaining a sample of size $n$ from a population of size $N$ such that every sample of size $n$ has an equally likely chance of being selected. 
+\end{definition} 
+   
+There are several ways to conduct a random-numbered selection method. It involves assigning a unique number to each subject in the population to create {\it{sample number framing}}. For instance, if the population size is $N=20$, we set the framing to be (01,02,03,...,20). If the desired sample size is $n=5$, then our sample data will contain the five selected (i.e., randomly selected) subjects from our framing. If our population size is $N=120$, then our framing will be (001,002,003, ..., 120), etc. Each number (written on a piece of paper) can be placed in a bin, thoroughly mixed and then randomly selected, where each number has equal chance of being selected. For a large population size and a large sample, this technique is time consuming. A much better approach--a classical approach--involves using a Table of Random Number (Table 1 in Appendix A). The detail of this approach is presented in Example~\ref{method:tab-of-random-num-001} (below). Using technology, such as a built-in random function in a calculator (e.g., TI-83) or software (e.g,, Microsoft Excel, LibreOffice Calc or similar) can help speed up the random selection process, while the sample number framing still remains enforced. Detailed discussion of this method is presented in Example~\ref{method:tech-of-random-num-001} and Example~\ref{method:tech-of-random-num-002}. 
+
+%Python code for generating TABLE OF RANDOM NUMBERS
+%import random
+%import pandas as pd
+%# Define the dimensions of the table
+%rows = 25
+%columns = 7
+%# Generate random numbers
+%data = [[random.randint(10000, 99999) for _ in range(columns)] for _ in range(rows)]
+%# Create a DataFrame
+%df = pd.DataFrame(data)
+%# Print the DataFrame
+%print(df)
+%UNCOMMENT, I.E., REMOVE % to run in Python 
+%TO BE INCLUDED IN APPENDIX 
+
+\begin{example} [Application of Table of Random Number] \label{method:tab-of-random-num-001} 
+Example 1 
+\end{example} 
+
+\begin{example} [Technology: Calculator Built-in Function] \label{method:tech-of-random-num-001} 
+   Example 2 
+\end{example} 
+
+\begin{example} [Technology: MS Excel and LibreOffice Stats Function] \label{method:tech-of-random-num-002} 
+   Example 3 
+\end{example} 
+
+\subsection{Systematic Sampling}
+
+The key to using systematic sampling is less effort compared to simple random sampling. Both systematic sampling and simple random sampling assume that the population of interest is well-behaved. As usual, we know the population size ($N$) and we desire a sample with size $n$. We number the subject in the population starting with 1 all the way to $N$. 
+
+We need to establish a range of values and randomly select one as our first data point. To accomplish this, we divide the total population size by the sample size:
+\eq \label{upper-limit-key}
+k = \frac{N}{n} 
+\ed 
+Next, we randomly pick a number between 1 and $k$, and call it $p$: 
+\eq \label{first-data}
+p = {\text{random}}(1, k) 
+\ed 
+We now construct our sample as follows: 
+\eq 
+p, \\
+p + k, \\
+p + 2k, \\
+p + 3k, \\
+\cdots \\
+p + (n-1)k
+\ed
+%\begin{enumerate}
+%\item p
+%\item p + k
+%\item p + 2k
+%\item $\cdots$
+%\item p + (n - 1) k
+%\end{enumerate} 
+We continue the process until we obtain $n$ data points. For example, if the desired sample is $n=5$, we build our sample like this: 
+\[ 
+p \\
+p + k \\
+p + 2k \\
+p + 3k \\
+p + 4k 
+\]   
+where each term represents a single datum (one data point). 
+\begin{example} [Systematic Sampling] \label{sys-sampling-001}
+Suppose a population consists of 300 subjects. We wish to select 20 of them to conduct our survey. Apply the method of systematic sampling to construct the sample for sample of size $n = 20$ selected from a population of size $N=300$. 
+
+\noindent {\it{Solution}}: We begin by determining $k$, the upper limit of the range of numbers to be selected as a first data point in the sample.  
+\begin{enumerate}
+\item Determine the value of $k$:
+\[ k = N/n = 300/20 = 15 \]  
+Note: If $k$ is not an integer, round it off to the closest integer. 
+\item Randomly select a number between 1 and $k$:
+\[ p = {\text{random}}(1,15) \]
+The number we picked is $p=8$. 
+\item We now build our sample as follows: 
+\[ 
+p \\
+p + k \\
+p + 2k \\
+p + 3k \\
+p + 4k \\
+\cdots \\
+p + 19k 
+\]
+Starting with $p$, then $p+k$, then $p + 2k$, then $p+3k$, etc., up to $n - 1$ data points. Thus, we have 
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+8 & 83 & 158 & 233 \\
+\hline
+23 & 98 & 173 & 248 \\
+\hline
+38 & 113 & 188 & 263 \\
+\hline
+53 & 128 & 203 & 278  \\
+\hline
+68 & 143 & 218 & 293 \\
+\hline
+\end{tabular}
+%\caption{\label{tab:5/tc}Expected value of winning.}
+\end{center}
+\end{table}
+\end{enumerate}
+For a population with $N=300$, our framing will be (001,002,003,...,300). These are the unique numbers we assign to all the subjects in the population. We then use the numbers from our sample (in the table) to select those subjects based on their assigned numbers. A survey can now be conducted on these individuals.    
+\end{example}  
+
+\begin{example} [Systematic Sampling] \label{sys-sampling-002}
+Suppose we wish to conduct a survey on people's opinion about a show. We know the number of people in the show, but we do not have control over the population participation, such as their willingness to sit around and wait to be selected for the survey. Instead, we cleverly apply systematic sampling to select an individual as they leave the room. The survey is quick; we simply ask them to give a rating of the show between 1 and 5. There are 53 people in the show, and we wish to survey 10 of them. Construct the sample to conduct the survey. 
+
+\noindent {\it{Solution}}: We begin by determining $k$, the upper limit of the range of numbers to be selected as a first data point in the sample.  
+\begin{enumerate}
+\item Determine the value of $k$:
+\[ k = N/n = 53/10 = 5.3 \approx 5 \]  
+Here, $k$ is not an integer and so we round it off to the closest integer, namely, $k=5$. 
+\item Randomly select a number between 1 and $k$:
+\[ p = {\text{random}}(1,5) \]
+The number we picked is $p=4$. 
+\item We now build our sample as follows: 
+\[ 
+p \\
+p + k \\
+p + 2k \\
+p + 3k \\
+p + 4k \\
+\cdots \\
+p + 9k 
+\]
+Starting with $p$, then $p+k$, then $p + 2k$, all the way to $p + 9k$, we have
+\[ 
+   {\text{Sample Data:}} = [ 4, 9, 14, 19, 24, 29, 34, 39, 44, 49 ]
+\]
+\end{enumerate}
+Our strategy: We do not need to construct the framing. We simply need to control the flow of people walking out the room in a single file so that we can select the 4th person, 9th person, 14th person, etc., and ask them to give the rating of the show.      
+\end{example} 
+
+\subsection{Cluster Sampling}
+
+The systematic sampling technique is good for constructing and collecting a sample from a population whose distribution is well-behaved. The method, however, is not quite useful for a population that is widely scattered. A method called {\it{Cluster Sampling}} is well suited for this kind of population. The method involves dividing the entire population into a set of groups, called {\it{clusters}}, of equal size. Based on the required sample size, a set of random clusters is selected. Finally, a simple random sample is conducted on the selected clusters to build the sample. We outline the procedure as follows: 
+\begin{enumerate}
+\item Divide the population into clusters (i.e., groups of equal size). 
+\item Obtain a random set of clusters.
+\item Conduct simple random sampling from the selected clusters.
+\end{enumerate}
+The only downside to this method is that it does not provide a reliable random selection of data.  
+ 
+\begin{example} [Cluster Sampling] \label{cluster-sample-001}     
+Construct a cluster sample for $N= 50, n=20$ with cluster size, $c=10$. 
+
+\noindent {\it{Solution}}: We apply the three steps in the procedure as follows:  
+\begin{enumerate} 
+\item Divide the population into clusters: 
+\[ m = \frac{\text{population size}}{\text{cluster size}} = \frac{N}{c} = \frac{50}{10} = 5 \] 
+Thus, we have 5 clusters, each consists of 10 members.
+\begin{verbatim}  
+Cluster 1: 1, 2, ... , 10 
+Cluster 2: 11, 12, ..., 20 
+Cluster 3: 21, 22, ..., 30 
+Cluster 4: 31, 32, ..., 40 
+Cluster 5: 41, 42, ..., 50   
+\end{verbatim} 
+Notice the framing begins in Cluster 1 starting with 1 and continues all the way to the last cluster with its last member with number 50. 
+\item Each cluster has 10 members, and the desired sample size is $n = 20$. Thus, the number of clusters we select out of the 5 is: 
+\[ k = n/10 = 2 \]
+So we need to randomly select 2 out of the 5 clusters. Say, we randomly select cluster 1 and 3. 
+
+\item From our selection of \#1 and \#3, we construct our sample as follows:
+\#1: 1, 2, ... , 10 
+\#3: 21, 22, ..., 30 
+\end{enumerate} 
+Thus, our data points are: 1, 2, 3, ..., 10, 21, 22, ... 30. As can be seen here, this method does not provide a reliable random selection of data.
+\end{example} 
+
+\subsection{Stratified Sampling}
+
+Stratified sampling is a method that utilizes simple random sampling on different groups within the population, called {\it{strata}}. Each stratum is subject to a simple random sampling method with sample size proportional to the size of the stratum. A sample from each stratum is then combined to yield the desired sample.  
+
+\begin{example}  [Stratified Sampling] \label{strat-001} 
+The population of the instructional faculty members at MCC consists of full-time and part-time, roughly in one-half proportion. The population is 273 with 87 full-time and 186 part-time instructors. To conduct a survey for opinions about benefits, we cannot simply apply simple random sampling on the entire population, due to two different groups. Doing so would likely yield an incorrect representation of the population about opinions on benefits. Instead, we apply stratified sampling. Construct a sample of 30 to conduct the survey.  
+
+\noindent {\it{Solution}}: We have the following information:
+\eqn 
+{\text{Population:}} & & N = 273 \nonumber \\
+{\text{Stratum 1:}} & & s_{1} = 87 \quad {\text{Full-time faculty}} \nonumber \\
+{\text{Stratum 2:}} & & s_{2} = 186 \quad {\text{Part-time faculty}} \nonumber \\
+{\text{Sample size:}} & & n =30 \nonumber 
+\eqd 
+
+We then divide the population into two strata; each stratum has its total size. A simple random sample is drawn from each stratum with the sample size based on its ratio. 
+
+Suppose we wish to randomly select 30 instructors to ask about their opinions on benefits. The population consists of two strata: full-time and part-time, with group size 87 and 186, respectively.  Here is the formula to draw a sample from each stratum: 
+
+{\text{sample size for full-time}}: $ n_{ft} = 30 \times \frac{87}{273} = 10 $ 
+
+{\text{sample size for part-time}}: $n_{pt} = 30 \times \frac{186}{273} = 20 $
+
+We randomly select 10 instructors from the full-time group and 20 from the part-time group and then combine to produce our sample. 
+\end{example}
+
+%\begin{example} [Stratified Sampling] \label{strat-002} 
+%Anotehr good example to discuss... 
+%\end{example} 
+
+\section{Sampling Errors and Sampling Bias}
+
+Even with the best methods of sampling, a {\it{sampling error}}\index{sampling error} is bound to occur. There are two sampling errors inherent in statistics with regards to data collection and analysis. 
+\begin{enumerate}
+   \item \textbf{Nonsampling Errors:}\index{nonsampling error} Errors that result from the survey process. Nonresponse, inaccurate response, bias in the selection of the individuals to be involved in the survey, interview error, questionnaire design, etc., are examples of nonsampling errors. 
+
+   \item \textbf{Sampling Errors:} \index{sampling errors} Errors made in the statistical analysis, such as clerical error--writing, transcribing--that occurred during the recording or calculation process. Such errors can cause a negative influence on the overall statistical results, which if undetected will lead to an incorrect interpretation (or prediction), since data cannot give complete (or accurate) information about the population.
+
+   \item \textbf{Sampling Bias:}\index{sampling bias}  As the name implies, bias simpling errors occur when sampling was done selectively based on favoritism and bias intention. Sampling bias actually goes against statistical ethics. The result is nonrepresentative of the population characterisitcs and therefore should be avoided at all cost.  
+\end{enumerate}
+
+\section{Review Questions}
+
+\begin{problem}
+How is a sample related to a population? 
+\end{problem} 
+
+\begin{problem} 
+Why is a sample used more often than a population?
+\end{problem}
+
+\begin{problem} 
+What is the difference between a parameter and a statistic?
+\end{problem}
+
+\begin{problem} 
+What are the two main branches of statistics?
+\end{problem}
+
+\begin{problem} 
+In your own words, list and describe the three major types of observational study.
+\end{problem}
+
+\begin{problem} 
+Distinguish between sampling and nonsampling error.
+\end{problem}
+
+\begin{problem} 
+Distinguish the difference between qualitative data and quantitative data.
+\end{problem}
+
+\begin{problem} 
+How do we identify a biased sample?
+\end{problem} 
+
+% resources: 
+% 
+% 
